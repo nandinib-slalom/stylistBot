@@ -75,3 +75,35 @@ To move your code to GitHub:
 	git branch -M main
 	git push -u origin main
 	```
+
+### GitHub Authentication: Passwords vs Tokens
+
+GitHub no longer supports password authentication for Git operations. You must use a **personal access token (PAT)** instead of your GitHub password when pushing code from the command line.
+
+When prompted for a password after `git push`, paste your personal access token (PAT) instead.
+
+#### How to Create a Personal Access Token
+
+1. Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens).
+2. Click **Generate new token**.
+3. For most users, select **classic** token for simplicity. If you want more control, use a **fine-grained** token and set the following permissions:
+   - **Repository permissions**: Contents (Read and write)
+   - **Actions**: Read and write (for GitHub Actions workflows)
+   - **Packages**: Read and write (for GitHub Packages, e.g., container images)
+4. Choose the repositories you want the token to access ("All repositories" or "Only select repositories").
+5. Copy and save the token securely. You will not be able to see it again.
+
+#### Recommended Permissions for CI/CD and Automation
+
+- For classic tokens: Enable **repo** and **workflow** permissions.
+- For fine-grained tokens: Enable **Contents: Read and write**, **Actions: Read and write**, and **Packages: Read and write** if needed.
+
+#### Security Tips
+
+- Never share your token or commit it to your repository.
+- Use the minimal permissions necessary for your needs.
+- You can revoke or regenerate tokens at any time from your GitHub settings.
+
+#### More Info
+
+See the [GitHub documentation on personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for details.
