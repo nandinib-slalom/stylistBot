@@ -1,0 +1,2 @@
+# No external dependencies required for basic usage
+# If you add API support, add 'requests' here
